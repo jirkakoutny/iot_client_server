@@ -1,4 +1,5 @@
 {
+  "proxy": "http://localhost:3001/",
   "name": "iot_dashboard",
   "version": "0.1.0",
   "private": true,

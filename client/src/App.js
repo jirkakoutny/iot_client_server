@@ -9,18 +9,15 @@ import Room from './Components/Room'
 
 import logo from '../public/img/logo.png'
 
+import RestClient from './RestClient.js'
+
 import moment from 'moment';
 
 import * as firebase from 'firebase';
 
-var config = {
-    apiKey: "AIzaSyB5EegdfZkuVB3d4nrZjc7-e5Xkz_a3Auw",
-    authDomain: "jkiot-b21dd.firebaseapp.com",
+firebase.initializeApp({
     databaseURL: "https://jkiot-b21dd.firebaseio.com",
-    storageBucket: "jkiot-b21dd.appspot.com",
-    messagingSenderId: "777387298764"
-};
-firebase.initializeApp(config);
+});
 
 moment.locale('cs');
 
@@ -31,6 +28,9 @@ class App extends Component {
         this.state = {
             room: null,
         };
+        RestClient.search('', (foods) => {
+            console.log(foods);
+        });
     }
 
     componentDidMount() {
